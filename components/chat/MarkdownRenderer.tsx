@@ -39,7 +39,7 @@ export function MarkdownRenderer({ content, className }: MarkdownRendererProps) 
         h3: ({ children }) => (
           <h3 className="text-lg font-bold text-ikargos-orange mb-2 mt-2 first:mt-0">{children}</h3>
         ),
-        code: ({ inline, children }) =>
+        code: ({ node, inline, className, children, ...props }: any) =>
           inline ? (
             <code className="bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded text-sm font-mono">
               {children}

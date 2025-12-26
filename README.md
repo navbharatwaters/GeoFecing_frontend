@@ -76,14 +76,28 @@ npm start
 
 ## n8n Webhook Integration
 
+### Configuration
+
+The n8n webhook URLs are configured via environment variables. To change them:
+
+1. Edit the `.env.local` file in the project root
+2. Update the webhook URLs:
+   ```env
+   NEXT_PUBLIC_TEXT_WEBHOOK_URL=https://your-new-domain.com/webhook/hr-query
+   NEXT_PUBLIC_AUDIO_WEBHOOK_URL=https://your-new-domain.com/webhook/hr-query-audio
+   ```
+3. Restart the development server: `npm run dev`
+
+**For production deployment**, set these environment variables in your hosting platform (Vercel, Netlify, etc.)
+
 ### Text Queries
-- **Endpoint**: `https://navbharatwater.one/webhook/hr-query`
+- **Default Endpoint**: `https://navbharatwater.one/webhook/hr-query`
 - **Method**: POST
 - **Body**: `{ "query": "your question" }`
 - **Response**: JSON data (auto-detects CSV export capability)
 
 ### Audio Queries
-- **Endpoint**: `https://navbharatwater.one/webhook/hr-query-audio`
+- **Default Endpoint**: `https://navbharatwater.one/webhook/hr-query-audio`
 - **Method**: POST
 - **Body**: FormData with audio file
 - **Response**: .wav audio file (auto-plays)
